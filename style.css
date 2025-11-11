@@ -1,0 +1,298 @@
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+:root {
+  --bg: #e6e1d7;
+  --card: #ffffff;
+  --accent: #3b82f6;
+  --muted: #6b7280;
+  --border: #e6e9ee;
+  --radius: 12px;
+  --max-width: 380px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: light;
+}
+
+
+/* ===== ESTRUTURA GERAL ===== */
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg); /* Aplica o fundo da logo */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* título no topo */
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== CABEÇALHO ===== */
+.site-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px; /* espaço entre título e formulário */
+}
+
+.hotel-logo {
+  width: 180px; /* tamanho padrão */
+  height: auto;
+  margin-bottom: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 480px) {
+  .hotel-logo {
+    width: 130px; /* diminui a logo em celulares */
+  }
+}
+
+
+.site-title {
+  font-size: 30px; /* título no topo */
+  font-weight: 700px;
+  color: #0f172a;
+  margin-top: 10px;
+}
+
+
+
+/* ===== ÁREA CENTRAL (FORMULÁRIO) ===== */
+.center-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+
+/* ===== FORMULÁRIO ===== */
+.auth-card {
+  background: var(--card);
+  width: 100%;
+  max-width: var(--max-width);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+
+
+
+.subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+
+
+
+label {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #111827;
+}
+
+
+
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fbfdff;
+  font-size: 15px;
+  color: #0b1220;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+
+
+
+input:focus {
+  border-color: rgba(59,130,246,0.9);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.12);
+}
+
+
+/* ===== BOTÃO ===== */
+.btn-primary {
+  margin-top: 8px;
+  width: 100%;
+  background: linear-gradient(180deg, var(--accent), #2563eb);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(59,130,246,0.16);
+  transition: transform .08s ease, box-shadow .12s, background .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(59,130,246,0.25);
+  background: linear-gradient(180deg, #4f8ef9, #1e56d6);
+}
+
+.btn-primary:active { transform: translateY(1px); }
+.btn-primary:focus { outline: 3px solid rgba(59,130,246,0.12); }
+
+/* 🔄 Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 🔒 Nota de segurança */
+.security-note {
+  font-size: 11px;
+  text-align: center;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ===== Tela de Boas-Vindas ===== */
+.welcome-card {
+  background: var(--card);
+  width: 100%;
+  max-width: var(--max-width);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+  border: 1px solid var(--border);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.welcome-card h2 {
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.welcome-card p {
+  color: var(--muted);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== TERMOS ===== */
+.terms {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+
+
+
+.terms-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(59,130,246,0.25);
+  padding-bottom: 1px;
+}
+
+
+.checkbox {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+
+.checkbox input {
+  margin-right: 6px;
+}
+
+
+.help-text {
+  text-align: center;
+  margin-top: 8px;
+}
+
+
+.help-text a {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+
+/* ===== RODAPÉ FIXADO AO FINAL ===== */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: auto;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+/* ===== ESTRUTURA ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* área central (formulário + tela de boas-vindas) */
+main.center-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;       /* <— aumenta o espaço entre os cards */
+  flex-wrap: wrap; /* <— faz com que empilhem em telas pequenas */
+}
+
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 420px) {
+  .auth-card { padding: 20px; border-radius: 10px; }
+  .site-title { font-size: 26px; }
+}
+

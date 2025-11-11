@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Conecte-se à rede Wi-Fi do Hotel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="site-header">
+    <img src="Logotipo Hotel Atlântico.png" alt="Logo do Hotel Atlântico" class="hotel-logo" />
+    <h1 class="site-title">Conecte-se à rede Wi-Fi do Hotel Atlântico</h1>
+  </header>
+
+  <!-- Conteúdo central -->
+  <main class="center-page">
+    <!-- Tela de login -->
+    <form class="auth-card" id="wifi-form" action="#" method="post" novalidate>
+      <p class="subtitle">
+        Insira seu CPF e a senha (nº do quarto) para acessar a rede Wi-Fi do hotel.
+      </p>
+
+      <label for="cpf">CPF</label>
+      <input
+        id="cpf"
+        name="cpf"
+        type="text"
+        inputmode="numeric"
+        pattern="\d{11}"
+        maxlength="11"
+        placeholder="Somente números (ex: 12345678901)"
+        required
+      />
+
+      <label for="room-pass">Senha (nº do quarto)</label>
+      <input
+        id="room-pass"
+        name="room-pass"
+        type="password"
+        inputmode="numeric"
+        pattern="\d{1,4}"
+        maxlength="4"
+        placeholder="Número do quarto"
+        required
+      />
+
+      <button type="submit" class="btn-primary" id="connect-btn">
+        <span class="btn-text">Acessar Wi-Fi</span>
+        <span class="spinner" hidden></span>
+      </button>
+
+      <p class="security-note">Conexão segura • HTTPS ativado</p>
+
+      <label class="checkbox">
+        <input type="checkbox" required>
+        Concordo com os <a href="#" class="terms-link">Termos de Uso</a> e a <a href="#">Política de Privacidade</a>.
+      </label>
+
+      <p class="help-text"><a href="#">Problemas para conectar?</a></p>
+    </form>
+
+    <!-- Tela de boas-vindas -->
+    <section class="welcome-card" id="welcome-screen" hidden>
+      <h2>Bem-vindo à Rede Wi-Fi do Hotel Atlântico!</h2>
+      <p>Conexão estabelecida com sucesso.</p>
+      <p>Aproveite sua navegação e tenha uma excelente estadia!</p>
+      <button class="btn-primary" id="logout-btn">Encerrar Sessão</button>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p>© 2025 Hotel Atlântico. Todos os direitos reservados.</p>
+    <p><a href="#">Política de Privacidade</a> | <a href="#">Contato</a></p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const form = document.getElementById('wifi-form');
+    const btn = document.getElementById('connect-btn');
+    const btnText = btn.querySelector('.btn-text');
+    const spinner = btn.querySelector('.spinner');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      btnText.textContent = "Conectando...";
+      spinner.hidden = false;
+
+      setTimeout(() => {
+        form.hidden = true;
+        welcomeScreen.hidden = false;
+        btnText.textContent = "Acessar Wi-Fi";
+        spinner.hidden = true;
+        btn.disabled = false;
+      }, 2000);
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      welcomeScreen.hidden = true;
+      form.hidden = false;
+    });
+  </script>
+</body>
+</html>
