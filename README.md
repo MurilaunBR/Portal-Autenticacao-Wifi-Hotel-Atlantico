@@ -1,0 +1,2 @@
+Esse projeto é um trabalho final realizado em grupo no fim do meu Ensino Médio integrado ao curso de Redes de Computadores, o objetivo era fazer uma aplicação web que consiga conectar todas as matérias do ano em um só projeto.
+Como não foi possível fazer com que todas as matérias sejam postas de maneira prática, muitas matérias ficaram somente explicadas na teoria, porém as principais como Linguagem de Programação e Programação para Web foram colocadas em prática.
